@@ -43,7 +43,7 @@ spec:
       name: Fetch Base
       action: fetch:template
       input:
-        url: https://github.com/iron87/backstage-catalog/skeleton/nodejs
+        url: https://github.com/iron87/backstage-catalog/tree/main/skeleton/nodejs
         values:
           name: ${{ parameters.name }}
 
