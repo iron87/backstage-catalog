@@ -42,7 +42,7 @@ spec:
     - id: fetch-base
       name: Fetch Base
       action: fetch:template
-      copyWithoutRender:
+      copyWithoutTemplating:
           - .github/workflows/*
       input:
         url: https://github.com/iron87/backstage-catalog/tree/main/skeleton/nodejs
