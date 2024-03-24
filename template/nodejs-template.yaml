@@ -43,7 +43,7 @@ spec:
       name: Fetch Base
       action: fetch:template
       copyWithoutRender:
-          - .github/workflows/docker-build.yaml
+          - https://github.com/iron87/backstage-catalog/tree/main/skeleton/nodejs/.github/workflows/*
       input:
         url: https://github.com/iron87/backstage-catalog/tree/main/skeleton/nodejs
         values:
