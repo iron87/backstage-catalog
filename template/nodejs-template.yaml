@@ -41,13 +41,13 @@ spec:
     # Each step executes an action, in this case one templates files into the working directory.
     - id: fetch-base
       name: Fetch Base
-      action: fetch:template
+      #action: fetch:template
       copyWithoutRender:
           - .github/workflows/*
       input:
         url: https://github.com/iron87/backstage-catalog/tree/main/skeleton/nodejs
         values:
-          #name: ${{ parameters.name }}
+          name: ${{ parameters.name }}
 
     # This step publishes the contents of the working directory to GitHub.
     - id: publish
