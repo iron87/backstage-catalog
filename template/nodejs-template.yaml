@@ -58,6 +58,27 @@ spec:
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
 
+
+    - id: fetch-argo
+      name: Fetch ArgoCD Templates
+      action: fetch:template
+      input:
+        targetPath: ./kube
+        url:  https://github.com/iron87/backstage-catalog/tree/main/skeleton/kubernetes
+        values:
+          name: ${{ parameters.name }}
+
+    - id: kube-pr
+      name: "Open PR in GitOps Repository"
+      action: publish:github:pull-request
+      input:
+        repoUrl: github.com?repo=platform-gitops-app&owner=iron87
+        branchName: create-${{ parameters.name  }}
+        title: ':robot: [backstage-platform-bot] Create new App ${{ parameters.name  }}'
+        description: |
+          # New project: ${{ parameters.name  }}
+        sourcePath: kube    
+
     # The final step is to register our new component in the catalog.
     - id: register
       name: Register
